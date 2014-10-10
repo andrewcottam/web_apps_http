@@ -3,7 +3,7 @@ require({
 	async : true,
 	packages : [{
 		name : "jrc",
-		location : "/dario_lcc/scripts"
+		location : "/darios_lcc/scripts"
 	}]
 }, ["dojo/date/stamp", "dijit/registry", "dojo/ready", "dojo/parser", "dojo/_base/array", "esri/geometry/Extent", "esri/SpatialReference", "dojo/on", "jrc/GeeLayer", "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dijit/Calendar", "dijit/form/Button", "dijit/form/Select", "dijit/form/CheckBox"], function(stamp, registry, ready, parser, array, Extent, SpatialReference, on, GeeLayer) {
 	ready(function() {
@@ -15,7 +15,7 @@ require({
 				rgbLayer.setVisibility(!rgbLayer.visible);
 			});
 			on(registry.byId("toggleWater"), "change", function(value) {
-				lccLayer.setVisibility(!lccLayer.visible);
+				waterLayer.setVisibility(!waterLayer.visible);
 			});
 		});
 		initExtent = new Extent(-517344.4386681639, 1662324.7040100119, -443964.8915144937, 1740596.2209739268, new SpatialReference({
@@ -32,14 +32,14 @@ require({
 				visible : true
 			});
 			rgbLayer.set("sceneid", "collection");
-			lccLayer = new GeeLayer('lccLayer', {
+			waterLayer = new GeeLayer('waterLayer', {
 				startDate : stamp.toISOString(registry.byId("startcal").value).substr(0, 10),
 				endDate : stamp.toISOString(registry.byId("endcal").value).substr(0, 10),
 				collectionid : registry.byId("collectionSelect").value,
 				visible : true
 			});
-			lccLayer.set("sceneid", "dario");
-			map.addLayers([rgbLayer, lccLayer]);
+			waterLayer.set("sceneid", "dario");
+			map.addLayers([rgbLayer, waterLayer]);
 		});
 		function extentChange(event) {
 			console.log("extentChange (x=" + map.extent.getCenter().x + " y=" + map.extent.getCenter().y + ")");
