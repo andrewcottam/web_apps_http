@@ -32,3 +32,6 @@ body {
 	height: 16px;
 	display: inline-block
 }
+.dijitCalendar {
+	font-size: x-small;
+}
