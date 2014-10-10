@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+		<title>Joint Research Centre Google Earth Engine Datasets</title>
+		<link rel="stylesheet" href="http://js.arcgis.com/3.9/js/dojo/dijit/themes/claro/claro.css">
+		<link rel="stylesheet" href="http://js.arcgis.com/3.9/js/esri/css/esri.css">
+		<link rel="stylesheet" href="styles/dario_lcc.css">
+		<script src="http://js.arcgis.com/3.9/"></script>
+		<script src="scripts/dario_lcc.js"></script>
+	</head>
+	<body class="claro">
+		<div id="mainWindow" data-dojo-type="dijit.layout.BorderContainer"	data-dojo-type="design:'headline', gutters:false" style="width:100%; height:100%;">
+			<div id="header" data-dojo-type="dijit.layout.ContentPane"  class="roundedCorners" data-dojo-props="region:'top'">
+				Joint Research Centre Google Earth Engine Datasets
+			</div>
+			<div id="map" data-dojo-type="dijit.layout.ContentPane" class="roundedCorners" data-dojo-props="region:'center'"></div>
+			<div data-dojo-type="dijit.layout.ContentPane" id="rightPane" class="roundedCorners" data-dojo-props="region:'right', splitter:true">
+				<div id="startcal" data-dojo-type="dijit/Calendar" value="2013-09-13"></div>
+				<div id="endcal" data-dojo-type="dijit/Calendar" value="2013-10-15"></div>
+				<select id="collectionSelect" data-dojo-type="dijit/form/Select">
+					<option value="LANDSAT/L5_L1T_TOA">LANDSAT/L5_L1T_TOA</option>
+					<option value="LANDSAT/L7_L1T_TOA">LANDSAT/L7_L1T_TOA</option>
+					<option value="LANDSAT/LC8_L1T_TOA" selected="selected">LANDSAT/LC8_L1T_TOA</option>
+				</select>
+				<button id="updateButton" data-dojo-type="dijit/form/Button" type="button">
+					Go
+				</button>
+				<div>
+					<div class="uiheader" style="width:145px">
+						Options:
+					</div>
+					<input type="checkbox" id="toggleRGB" data-dojo-type="dijit/form/CheckBox" checked>
+					<label for="toggleRGB">RGB layer</label>
+					<br/>
+					<input type="checkbox" id="toggleWater" data-dojo-type="dijit/form/CheckBox" checked>
+					<label for="toggleWater">Detection layer</label>
+				</div>
+			</div>
+			<div id="footer" class="roundedCorners" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'bottom'">
+				footer
+			</div>
+		</div>
+	</body>
+</html>
