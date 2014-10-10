@@ -2,10 +2,10 @@
 require({
 	async : true,
 	packages : [{
-		name : "jrc_cdn",
-		location : "//andrewcottam.github.io/cdn/scripts"
+		name : "jrc",
+		location : "/darios_lcc/scripts"
 	}]
-}, ["dojo/date/stamp", "dijit/registry", "dojo/ready", "dojo/parser", "dojo/_base/array", "esri/geometry/Extent", "esri/SpatialReference", "dojo/on", "jrc_cdn/GeeLayer", "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dijit/Calendar", "dijit/form/Button", "dijit/form/Select", "dijit/form/CheckBox"], function(stamp, registry, ready, parser, array, Extent, SpatialReference, on, GeeLayer) {
+}, ["dojo/date/stamp", "dijit/registry", "dojo/ready", "dojo/parser", "dojo/_base/array", "esri/geometry/Extent", "esri/SpatialReference", "dojo/on", "jrc/GeeLayer", "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dijit/Calendar", "dijit/form/Button", "dijit/form/Select", "dijit/form/CheckBox"], function(stamp, registry, ready, parser, array, Extent, SpatialReference, on, GeeLayer) {
 	ready(function() {
 		var map, rgbLayer;
 		parser.parse().then(function() {
