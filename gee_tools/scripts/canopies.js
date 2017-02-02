@@ -9,9 +9,9 @@ require(
 				var AERIAL_IMAGERY_DEFAULT_SCALE = 20;
 				var AERIAL_IMAGERY_WMS_SERVER = "http://ies-ows.jrc.ec.europa.eu/canhemon0";
 				var LAYER_RGB_2012 = 'pt.ortophotos.2012.rgb';
-				var LAYER_FALSE_COLOUR_2012 = 'pt.ortophotos.2012.ngr';
-				var LAYER_RGB_2015 = 'pt.ortophotos.20151127.rgb';
-				var LAYER_FALSE_COLOUR_2015 = 'pt.ortophotos.20151127.ngr';
+				var LAYER_FALSE_COLOUR_2012 = 'pt.ortophotos.2012.rnb';
+				var LAYER_RGB_2015 = 'pt.ortophotos.20161222.rgb';
+				var LAYER_FALSE_COLOUR_2015 = 'pt.ortophotos.20161222.rnb';
 				var REST_SERVER_URL = "http://dopa-services.jrc.ec.europa.eu/services/h05googleearthengine";
 				var SHADOW_HTML = " (shadow)";
 				var MAX_SITE_BUFFER = 40;
