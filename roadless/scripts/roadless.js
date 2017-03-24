@@ -55,7 +55,7 @@ require(["dojo/date/locale", "dijit/focus", "dojo/parser", "dijit/form/RadioButt
 		addValidationSquare(imagerymap, START_POINT);
 		//add the extent of the high resolution map to the context map
 		addExtentToContextMap();
-		var restServerUrl = "http://dopa-services.jrc.ec.europa.eu/services/h05googleearthengine";
+		var restServerUrl = "https://python-blishten.c9users.io/python-rest-server/cgi-bin/services.py/";
 //		geeServerUrl = (document.domain === "localhost") ? "http://localhost:8080" : "http://geeImageServer.appspot.com";
 		var geeServerUrl = "http://geeImageServer.appspot.com";
 		getValidationClasses();
@@ -100,7 +100,7 @@ require(["dojo/date/locale", "dijit/focus", "dojo/parser", "dijit/form/RadioButt
 		//rest call to get the information on the validation classes, e.g. Green, Not-Green etc.
 		function getValidationClasses() {
 			var deferred;
-			deferred = script.get(restServerUrl + "/especies/_get_gee_validation_landcovertypes?format=json", {
+			deferred = script.get(restServerUrl + "roadless/services/get_gee_validation_landcovertypes?format=json", {
 				jsonp : "callback"
 			});
 			deferred.then(function(response) {
@@ -128,7 +128,7 @@ require(["dojo/date/locale", "dijit/focus", "dojo/parser", "dijit/form/RadioButt
 		//REST call to get the site information
 		function getSites(startFrom, records) {
 			var deferred;
-			deferred = script.get(restServerUrl + "/especies/_get_swdb_validated_sites?format=json", {
+			deferred = script.get(restServerUrl + "roadless/services/get_validated_sites?format=json", {
 				query : {
 					startfrom : startFrom,
 					buffersize : records
@@ -143,7 +143,7 @@ require(["dojo/date/locale", "dijit/focus", "dojo/parser", "dijit/form/RadioButt
 					nextSiteRetrieved = true;
 				}
 			},function(err){
-				console.log("wibble");
+				console.log(err);
 			});
 			return deferred;
 		}
@@ -220,7 +220,7 @@ require(["dojo/date/locale", "dijit/focus", "dojo/parser", "dijit/form/RadioButt
 		
 		//sets the checkout_date value to NULL for sites which fail
 		function resetSite(oid){
-			deferred = script.get(restServerUrl + "/especies/_set_swdb_site_failed?format=json", {
+			deferred = script.get(restServerUrl + "roadless/services/set_site_failed?format=json", {
 				query : {
 					oid : oid
 				},
@@ -333,7 +333,7 @@ require(["dojo/date/locale", "dijit/focus", "dojo/parser", "dijit/form/RadioButt
 		function getMetadata(centerPoint){
 			if (registry.byId("togglebinglayer").value == 'on'){
 				var location_string = centerPoint.lat + "," + centerPoint.lng;
-				var deferred = script.get("http://dev.virtualearth.net/REST/v1/Imagery/Metadata/Aerial/" + location_string + "?" ,{
+				var deferred = script.get("http://dev.virtualearth.net/services/v1/Imagery/Metadata/Aerial/" + location_string + "?" ,{
 					 query: {
 						zl : 10,
 						key : bingApiKey
@@ -421,7 +421,7 @@ require(["dojo/date/locale", "dijit/focus", "dojo/parser", "dijit/form/RadioButt
 			var deferred, validated_class = validationClass.class_id;
 			var validation_property = currentValidation.name;
 			sites[position][validation_property] = validated_class;
-			deferred = script.get(restServerUrl + "/especies/_set_swdb_site_validated", {
+			deferred = script.get(restServerUrl + "roadless/services/_set_site_validated", {
 				query : {
 					oid : sites[position].oid,
 					validation_property : validation_property,
@@ -454,7 +454,7 @@ require(["dojo/date/locale", "dijit/focus", "dojo/parser", "dijit/form/RadioButt
 
 		function getValidatedSiteCount() {
 			var deferred;
-			deferred = script.get(restServerUrl + "/especies/_get_swdb_validated_site_count?format=json", {
+			deferred = script.get(restServerUrl + "roadless/services/get_validated_site_count?format=json", {
 				jsonp : "callback"
 			});
 			deferred.then(function(response) {
