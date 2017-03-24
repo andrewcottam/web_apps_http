@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Xeno-Canto CLient</title>
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.12.1/dojo/dojo.js" data-dojo-config="async: true"></script>
+    <script type="text/javascript">
+        var REST_ENDPOINT = "http://www.xeno-canto.org/api/2/recordings?";
+        require(["dojo/request/xhr", ], function(xhr) {
+            xhr(REST_ENDPOINT, {
+                query: {
+                    query: "troglodytes troglodytes",
+                },
+                handleAs: "json",
+                headers: {
+                    "X-Requested-With": null
+                },
+            }).then(function(response) {
+                var recording = response.numRecordings;
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

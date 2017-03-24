@@ -421,7 +421,7 @@ require(["dojo/date/locale", "dijit/focus", "dojo/parser", "dijit/form/RadioButt
 			var deferred, validated_class = validationClass.class_id;
 			var validation_property = currentValidation.name;
 			sites[position][validation_property] = validated_class;
-			deferred = script.get(restServerUrl + "roadless/services/_set_site_validated", {
+			deferred = script.get(restServerUrl + "roadless/services/set_site_validated", {
 				query : {
 					oid : sites[position].oid,
 					validation_property : validation_property,
