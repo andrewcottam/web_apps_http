@@ -432,7 +432,7 @@ require(["dojo/date/locale", "dijit/focus", "dojo/parser", "dijit/form/RadioButt
 				jsonp : "callback"
 			});
 			deferred.then(function(response) {
-				var result = response.records[0]._set_swdb_site_validated;
+				var result = response.records[0].set_site_validated;
 				if (result) {
 					getValidatedSiteCount();
 				}
@@ -458,7 +458,7 @@ require(["dojo/date/locale", "dijit/focus", "dojo/parser", "dijit/form/RadioButt
 				jsonp : "callback"
 			});
 			deferred.then(function(response) {
-				dom.byId("validatedCount").innerHTML = response.records[0]._get_swdb_validated_site_count + " points to be validated";
+				dom.byId("validatedCount").innerHTML = response.records[0].get_validated_site_count + " points to be validated";
 			});
 			return deferred;
 		}
